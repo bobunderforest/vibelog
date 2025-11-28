@@ -21,7 +21,7 @@ export const RecLogger = ({ onCapture }: Props) => {
   const [detectedEmoji, setEmoji] = useState<EmojiType>(statusIcons['default'])
   const [isCaptured, setCaptured] = useState(false)
   const [capturedFrame, setCapturedFrame] = useState<string | null>(null)
-  const [stopVideoRecognizing, setStop] = useState<(() => void) | null>(null)
+  const stopRef = useRef<(() => void) | null>(null)
 
   useEffect(() => {
     const videoEl = videoRef.current
@@ -29,9 +29,16 @@ export const RecLogger = ({ onCapture }: Props) => {
 
     const init = async () => {
       await loadModels()
-      const { stop } = prepareVideoRecognition(videoEl, setEmoji)
-      setStop(stop)
-      startVideoRecording(videoEl)
+      const { stop: stopRecognizing } = prepareVideoRecognition(
+        videoEl,
+        setEmoji,
+      )
+      const { stop: stopRecording } = await startVideoRecording(videoEl)
+
+      stopRef.current = () => {
+        stopRecognizing()
+        stopRecording()
+      }
     }
 
     init()
@@ -41,7 +48,7 @@ export const RecLogger = ({ onCapture }: Props) => {
     const videoEl = videoRef.current
     if (!videoEl) return
 
-    stopVideoRecognizing?.()
+    stopRef.current?.()
     const frame = captureVideoFrameByRatio(videoEl, ASPECT_W / ASPECT_H)
 
     setCapturedFrame(frame.dataUri)

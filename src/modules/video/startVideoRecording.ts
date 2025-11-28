@@ -41,7 +41,18 @@ export const startVideoRecording = async (videoEl: HTMLVideoElement) => {
     videoEl.onloadedmetadata = function (e) {
       videoEl.play()
     }
+    return {
+      stop: () => {
+        stream.getTracks().forEach((track) => {
+          track.stop()
+        })
+      },
+    }
   } catch (err: any) {
     console.log(err.name + ': ' + err.message)
+  }
+
+  return {
+    stop: () => {},
   }
 }
