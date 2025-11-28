@@ -1,0 +1,69 @@
+@import './tailwind-animate.css';
+
+/**
+ * ==============================================
+ * Colors
+ * ==============================================
+ */
+:root {
+  --color-background: #fff;
+  --color-text: #000;
+  --color-branded: #66c;
+  --color-border: #dedeff;
+}
+@theme {
+  --color-*: initial;
+
+  --color-background: #fff;
+  --color-text: #000;
+  --color-branded: #66c;
+  --color-border: #dedeff;
+}
+
+/**
+ * ==============================================
+ * Breakpoints
+ * ==============================================
+ */
+:root {
+  --breakpoint-desktop-m: 1600px;
+  --breakpoint-desktop-s: 1200px;
+  --breakpoint-tablet-m: 992px;
+  --breakpoint-tablet-s: 768px;
+  --breakpoint-mobile-m: 480px;
+  --breakpoint-mobile-s: 320px;
+}
+@theme {
+  --breakpoint-*: initial;
+}
+@custom-variant desktop-m (@media (max-width: 1600px));
+@custom-variant desktop-s (@media (max-width: 1200px));
+@custom-variant tablet-m (@media (max-width: 992px));
+@custom-variant tablet-s (@media (max-width: 768px));
+@custom-variant mobile-m (@media (max-width: 480px));
+@custom-variant mobile-s (@media (max-width: 320px));
+
+/**
+ * ==============================================
+ * Fonts
+ * ==============================================
+ */
+:root {
+  --font-face-regular: 'Courier';
+}
+@theme {
+  --font-face-regular: 'Courier';
+
+  --text-*: initial;
+
+  --leading-*: initial;
+}
+
+/**
+ * ==============================================
+ * Spacings
+ * ==============================================
+ */
+:root {
+  --header-height: 80px;
+}

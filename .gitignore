@@ -1,5 +1,7 @@
 # build output
 dist/
+.wrangler/
+
 # generated types
 .astro/
 
@@ -11,11 +13,12 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
-
+dev_log.log
 
 # environment variables
 .env
 .env.production
+.dev.vars
 
 # macOS-specific files
 .DS_Store

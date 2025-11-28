@@ -1,0 +1,86 @@
+@import 'tailwindcss';
+
+@import './tailwind-theme.css';
+
+@layer base {
+  html.html-scroll-lock {
+    overflow-y: scroll;
+  }
+
+  .pixelate canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 40px;
+    object-fit: cover;
+  }
+
+  body.body-scroll-lock {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+
+  body {
+    color: var(--color-text);
+    font-size: var(--font-regular);
+    font-family: var(--font-face-regular);
+    line-height: 1.6;
+    background-color: var(--color-background);
+    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  button {
+    touch-action: manipulation;
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  input,
+  textarea,
+  button,
+  select {
+    border: 0;
+    outline: none;
+    font: inherit;
+    appearance: none;
+    -webkit-font-smoothing: inherit;
+  }
+
+  input,
+  textarea,
+  button,
+  select,
+  label,
+  a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  img,
+  embed,
+  iframe,
+  object,
+  audio,
+  video {
+    max-width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  svg,
+  img {
+    display: block;
+  }
+}

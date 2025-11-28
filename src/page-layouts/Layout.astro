@@ -1,0 +1,26 @@
+---
+import 'styles/global.css'
+import Html from 'page-layouts/Html.astro'
+---
+
+<Html
+  metaTitle="vibe_log"
+  metaUrl="vibe_log"
+  metaDescription="vibe_log"
+  metaFavicon="/favicon.svg"
+  metaImage=""
+>
+  <script slot="head" is:inline src="/face-api.min.js"></script>
+  <header
+    class={'px-[20px] h-(--header-height) flex items-center justify-between text-[20px] mobile-m:text-[16px] tracking-[5px] font-bold text-branded'}
+  >
+    <a href="/" class="text-[40px] mobile-m:text-[30px]">📸</a>
+    <div>
+      <span class="mobile-m:hidden">\\</span>\ vibe_log \<span
+        class="mobile-m:hidden">\\</span
+      >
+    </div>
+    <a href="/feed" class="text-[40px] mobile-m:text-[30px]">🎞️</a>
+  </header>
+  <slot />
+</Html>
