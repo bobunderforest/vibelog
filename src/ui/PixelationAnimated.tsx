@@ -32,7 +32,6 @@ export const PixelationAnimated = ({
         requestAnimationFrame(renderPixelation)
       } else {
         const pixelatedDataUrl = pixelateRef?.current.canvas.toDataURL()
-        console.log(pixelatedDataUrl)
         onPixelationFinished?.(pixelatedDataUrl)
       }
     }
