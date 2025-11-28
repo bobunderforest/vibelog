@@ -4,10 +4,7 @@
     ".astro/types.d.ts",
     "**/*"
   ],
-  "exclude": [
-    "dist",
-    "functions/**/*"
-  ],
+  "exclude": ["dist"],
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "react",
