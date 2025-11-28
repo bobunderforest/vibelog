@@ -42,6 +42,10 @@ export const RecLogger = ({ onCapture }: Props) => {
     }
 
     init()
+
+    return () => {
+      stopRef.current?.()
+    }
   }, [])
 
   const handleCapture = useCallback(() => {
@@ -81,6 +85,7 @@ export const RecLogger = ({ onCapture }: Props) => {
             id="video"
             muted
             autoPlay
+            playsInline
           ></video>
         )}
 
