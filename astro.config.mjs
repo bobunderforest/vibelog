@@ -1,10 +1,10 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig } from 'astro/config'
 
-import react from '@astrojs/react';
-import tailwindcss from '@tailwindcss/vite';
-
+import react from '@astrojs/react'
+import tailwindcss from '@tailwindcss/vite'
 import svgr from 'vite-plugin-svgr'
+import basicSsl from '@vitejs/plugin-basic-ssl'
 
 // https://astro.build/config
 export default defineConfig({
@@ -15,11 +15,11 @@ export default defineConfig({
   },
 
   vite: {
-    plugins: [tailwindcss(), svgr()],
+    plugins: [tailwindcss(), svgr(), basicSsl()],
     server: {
       watch: {
         usePolling: true,
       },
     },
-  }
-});
+  },
+})
