@@ -26,9 +26,11 @@ export const startVideoRecording = async (videoEl: HTMLVideoElement) => {
 
   try {
     const stream = await navigator.mediaDevices.getUserMedia({
+      audio: false,
       video: {
-        width: { ideal: 1080 },
-        height: { ideal: 1920 },
+        facingMode: { ideal: 'user' },
+        width: { min: 720 },
+        height: { min: 1280 },
       },
     })
     // Older browsers may not have srcObject

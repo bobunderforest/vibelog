@@ -9,12 +9,14 @@ export const FeedItem = ({ vibe }: Props) => {
   return (
     <div
       className={
-        'border-border relative overflow-hidden rounded-[40px] border p-[4px]'
+        'relative overflow-hidden rounded-[40px] border border-border p-[4px]'
       }
     >
       <div className={'relative h-full w-full overflow-hidden rounded-[36px]'}>
         <img
-          className={'absolute top-0 left-0 block object-cover'}
+          className={
+            'absolute top-0 left-0 block h-full w-full transform-[scaleX(-1)] object-cover'
+          }
           src={vibe.imageDataUrl}
           alt=""
         />

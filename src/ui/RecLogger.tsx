@@ -52,8 +52,8 @@ export const RecLogger = ({ onCapture }: Props) => {
     const videoEl = videoRef.current
     if (!videoEl) return
 
-    stopRef.current?.()
     const frame = captureVideoFrameByRatio(videoEl, ASPECT_W / ASPECT_H)
+    stopRef.current?.()
 
     setCapturedFrame(frame.dataUri)
     setCaptured(true)
@@ -79,7 +79,7 @@ export const RecLogger = ({ onCapture }: Props) => {
         {!isCaptured && (
           <video
             className={
-              'absolute top-0 left-0 block h-full w-full rounded-[38px] object-cover p-[4px]'
+              'absolute top-0 left-0 block h-full w-full transform-[scaleX(-1)] rounded-[38px] object-cover p-[4px]'
             }
             ref={videoRef}
             id="video"
@@ -95,7 +95,7 @@ export const RecLogger = ({ onCapture }: Props) => {
               src={capturedFrame}
               onPixelationFinished={handleCaptureFinished}
               className={
-                'absolute top-0 left-0 block h-full w-full overflow-hidden rounded-[38px] object-cover'
+                'absolute top-0 left-0 block h-full w-full transform-[scaleX(-1)] overflow-hidden rounded-[38px] object-cover'
               }
             />
           </div>
